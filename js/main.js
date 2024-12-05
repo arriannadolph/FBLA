@@ -7,7 +7,7 @@ var wealth = 5;
 var happiness = 5;
 var health = 5;
 var parenthealth = 5;
-var years = 0;
+var years = 1;
 
 /*----- cached elements -----*/
 

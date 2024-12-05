@@ -33,7 +33,7 @@ var modifiers = 0;
 
 /*----- event listeners -----*/
 optionButton1.addEventListener("click", function(){
-	if(years == 1){
+if(years == 1){
         if(eventCount == 1){
 		    var bottleChance = randomNumber(1,2)
 		    if (randomNumber == 1){
@@ -50,39 +50,39 @@ optionButton1.addEventListener("click", function(){
 		    }
 	    }else if(eventCount == 2){
 		    problem.textContent=("While your sleep may suffer, your baby went to bed faster with you there.");
-            parentHealth = parentHealth - 1;
-            health = health + 1;
-            eventCount = eventCount + 1;
-            updateScreen();
+            	parentHealth = parentHealth - 1;
+            	health = health + 1;
+            	eventCount = eventCount + 1;
+            	updateScreen();
 	    }else{
-            problem.textContent=("While your child is falling slightly behind, you set up your future for you and your family");
-            wealth = wealth + 2;
-            happiness = happiness - 2;
-            eventCount = 1;
-            updateScreen();
-    }
+            	problem.textContent=("While your child is falling slightly behind, you set up your future for you and your family");
+            	wealth = wealth + 2;
+            	happiness = happiness - 2;
+            	eventCount = 1;
+            	updateScreen();
+    	}
 }
 });
 optionButton2.addEventListener("click", function(){
 	// there are only two options for the 3 events on year 1, so i will put the second choice into option 3 for aesthetic purposes
 });
 optionButton3.addEventListener("click", function(){
-    if(years == 1){
-        if(eventCount == 1){
-            var bottleChance = randomNumber(1,2);
-            if(randomNumber == 1){
-                problem.textContent=("Your child just needed more time. Making the switch wasn't necessary, and your baby actually does better breastfeeding.")
-                wealth = wealth - 1
-                eventCount = eventCount + 1;
-                updateScreen();
-            }else{
-                problem.textContent=("Your baby responded much better to bottle-feeding.")
-                health = health + 1;
-                eventCount = eventCount + 1;
-                updateScreen();
-            }
+if(years == 1){
+if(eventCount == 1){
+        var bottleChance = randomNumber(1,2);
+        if(randomNumber == 1){
+        	problem.textContent=("Your child just needed more time. Making the switch wasn't necessary, and your baby actually does better breastfeeding.")
+        	wealth = wealth - 1
+        	eventCount = eventCount + 1;
+        	updateScreen();
+        }else{
+            problem.textContent=("Your baby responded much better to bottle-feeding.")
+            health = health + 1;
+            eventCount = eventCount + 1;
+            updateScreen();
         }
     }
+}
 });
 
 

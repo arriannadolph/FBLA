@@ -26,7 +26,7 @@ var eventCount = 1;
 
 var majorChoice2Modifiers = 0;
 var majorChoice3Modifiers = 0;
-var MajorChoice5Modifiers = 0;
+var majorChoice5Modifiers = 0;
 
 
 /*----- cached elements -----*/
@@ -77,7 +77,7 @@ optionButton1.addEventListener("click", function(){
             problem.textContent=("You decide to punish your child with a punishment that makes them think about what they did. (This will affect the game later.)");
             majorChoice2Modifiers = majorChoice2Modifiers + 1;
             majorChoice3Modifiers = majorChoice3Modifiers + 1;
-            MajorChoice5Modifiers = MajorChoice5Modifiers + 1;
+            majorChoice5Modifiers = majorChoice5Modifiers + 1;
             eventCount = 1;
             years = 3;
             updateScreen();
@@ -116,7 +116,7 @@ optionButton2.addEventListener("click", function(){
             problem.textContent=("You decide not to punish your child at all. (This will affect the game later.)");
             majorChoice2Modifiers = majorChoice2Modifiers + 1;
             majorChoice3Modifiers = majorChoice3Modifiers + 1;
-            MajorChoice5Modifiers = MajorChoice5Modifiers + 1;
+            majorChoice5Modifiers = majorChoice5Modifiers + 1;
             happiness = happiness + 1;
             intellect = intellect - 1;
             eventCount = eventCount + 1;
@@ -154,7 +154,7 @@ optionButton3.addEventListener("click", function(){
             problem.textContent=("You decide to give your child a physical punishment. (This will affect the game later.)");
             majorChoice2Modifiers = majorChoice2Modifiers - 2;
             majorChoice3Modifiers = majorChoice3Modifiers - 2;
-            MajorChoice5Modifiers = MajorChoice5Modifiers - 2;
+            majorChoice5Modifiers = majorChoice5Modifiers - 2;
             health = health - 1;
             intellect = intellect - 1;
             happiness = happiness - 1;

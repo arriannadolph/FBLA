@@ -107,3 +107,15 @@ function option1Selected (){
 
     }
 };
+
+function navigate(page){
+	if (page ==='play'){
+		window.location.href='q1y1.html';
+	} else if (page === 'leaderboard'){
+		window.location.href='leaderboard.html';
+	} else if (page === 'options'){
+		window.location.href='options.html';
+	} else if (page === 'settings'){
+		window.location.href='settings.html';
+	}
+}

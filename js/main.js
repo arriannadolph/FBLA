@@ -28,6 +28,8 @@ var majorChoice2Modifiers = 0;
 var majorChoice3Modifiers = 0;
 var majorChoice5Modifiers = 0;
 
+var hasTablet = false;
+
 
 /*----- cached elements -----*/
 
@@ -101,6 +103,29 @@ optionButton1.addEventListener("click", function(){
             intellect = intellect + 1;
             eventCount = 1;
             years = 4;
+            hasTablet = true
+        }
+    }else if(years == 4){
+        if(eventCount == 1){
+            problem.textContent=("You decide to enroll your child into preschool. This allows both you and your spouse to work longer hours, and make more money.");
+            wealth = wealth + 2;
+            intellect = intellect + 1;
+            eventCount = eventCount + 1;
+            updateScreen();
+        }else if(eventCount == 2){
+            problem.textContent=("You get the promotion, but as you were working towards it, you had to work even longer.");
+            wealth = wealth + 1;
+            happiness = happiness - 1;
+            eventCount = eventCount + 1;
+            updateScreen();
+        }else if(eventCount == 3 && hasTablet == true) {
+            problem.textContent=("You decide to limit your child's use of the tablet.")
+            intellect = intellect + 1;
+            eventCount = 1;
+            years = 5;
+        }else{
+            eventCount = 1;
+            years = 5;
         }
     }
 });
@@ -124,6 +149,17 @@ optionButton2.addEventListener("click", function(){
         }
     }else if(years == 3){
         problem.style.display='none';
+    }else if(years == 4){
+        if(eventCount == 3 && hasTablet == true) {
+            problem.textContent=("You decide that it isn't a problem.")
+            intellect = intellect + 1;
+            health = health - 1;
+            eventCount = 1;
+            years = 5;
+        }else{
+            eventCount = 1;
+            years = 5;
+        }
     }
 });
 
@@ -173,6 +209,29 @@ optionButton3.addEventListener("click", function(){
             eventCount = 1
             years = 4;
             updateScreen();
+        }
+    }else if(years == 4){
+        if(eventCount == 1){
+            problem.textContent=("You decide not to enroll your child into preschool.");
+            eventCount = eventCount + 1;
+            updateScreen();
+        }else if(eventCount == 2){
+            problem.textContent=("You don't get the promotion, because you need to spend more time with your kid.");
+            happiness = happiness + 1;
+            eventCount = eventCount + 1;
+            updateScreen();
+        }else if(eventCount == 3 && hasTablet == true) {
+            problem.textContent=("You decide to scold your child for using their tablet.")
+            intellect = intellect + 1;
+            happiness = happiness + 1;
+            majorChoice2Modifiers = majorChoice2Modifiers - 1;
+            majorChoice3Modifiers = majorChoice3Modifiers - 1;
+            majorChoice5Modifiers = majorChoice5Modifiers - 1;
+            eventCount = 1;
+            years = 5;
+        }else{
+            eventCount = 1;
+            years = 5;
         }
     }
 });

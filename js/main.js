@@ -99,6 +99,7 @@ optionButton1.addEventListener("click", function(){
             eventCount = 1;
             years = 4;
             hasTablet = true
+            updateScreen();
         }
     }else if(years == 4){
         if(eventCount == 1){
@@ -118,9 +119,11 @@ optionButton1.addEventListener("click", function(){
             intellect = intellect + 1;
             eventCount = 1;
             years = 5;
+            updateScreen();
         }else{
             eventCount = 1;
             years = 5;
+            updateScreen();
         }
     }
 });
@@ -151,9 +154,11 @@ optionButton2.addEventListener("click", function(){
             health = health - 1;
             eventCount = 1;
             years = 5;
+            updateScreen();
         }else{
             eventCount = 1;
             years = 5;
+            updateScreen();
         }
     }
 });
@@ -224,9 +229,11 @@ optionButton3.addEventListener("click", function(){
             majorChoice5Modifiers = majorChoice5Modifiers - 1;
             eventCount = 1;
             years = 5;
+            updateScreen();
         }else{
             eventCount = 1;
             years = 5;
+            updateScreen();
         }
     }
 });

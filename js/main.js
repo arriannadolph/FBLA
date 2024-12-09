@@ -1,14 +1,23 @@
+/*
+okay, i'm putting this here because i mostly suck at confrontation & expressing opinions, but
+i think we may need to seriously consider cutting back on the scope of this project, perhaps 
+cutting down to just 2-3 major choices, because we have under a week to have this completed, 
+and i just don't think making *all* of those routes in that time is feasible.
+
+if we do decide to cut back, we could decrease the amount of choices you make in your childs
+life as it ages, as the child becomes more independent, eventually becoming a choice every
+few years. because we have to get roughly 63 choices total (if i'm not mistaken), and in three
+days i have only been able to do about 8.
+*/
+
+
+
 /*----- constants -----*/
 const problem = getElementById();
 const optionbutton1 = getElementById();
 const optionbutton2 = getElementById();
 const optionbutton3 = getElementById();
 const minigameButton = getElementById();
-const majorChoice1 = [Year6A, Year6B, Year6C];
-const majorChoice2 = [Year9A, Year9B, Year9C];
-const majorChoice3 = [Year13A, Year13B, Year13C];
-const majorChoice4 = [Year16A, Year16B, Year16C];
-const majorChoice5 = [Year18A, Year18B, Year18C];
 
 /*----- state variables -----*/
 let intellect = localStorage.getItem('intellect')?parseInt(localStorage.getItem('intellect')):30;
@@ -18,6 +27,14 @@ let health = localStorage.getItem('health')?parseInt(localStorage.getItem('healt
 let parentWellbeing = localStorage.getItem('parentWellbeing')?parseInt(localStorage.getItem('parentWellbeing')): 30;
 var years = 1;
 var eventCount = 1;
+
+var majorChoice1 = 0;
+var majorChoice2 = 0;
+var majorChoice3 = 0;
+var majorChoice4 = 0;
+var majorChoice5 = 0;
+var majorChoice6 = 0;
+// having the major choices be a variable with values 1-3 instead of all of that stuff i was doing with lists is *so* much easier.
 
 var majorChoice2Modifiers = 0;
 var majorChoice3Modifiers = 0;
@@ -140,6 +157,16 @@ optionButton1.addEventListener("click", function(){
             years = 6;
             updateCounters();
         }
+    }else if(years == 6){
+        // MAJOR CHOICE ONE
+        if (eventCount == 1){
+            problem.textContent=("You decide to enroll your child in private school. This does end up being expensive.");
+            wealth = wealth - 4;
+            intellect = intellect + 11;
+            majorChoice1 = 1;
+            eventCount = eventCount + 1;
+            updateCounters();
+        }
     }
 });
 
@@ -183,6 +210,16 @@ optionButton2.addEventListener("click", function(){
             parentWellbeing = parentWellbeing - 1;
             eventCount = 1;
             years = 6;
+            updateCounters();
+        }
+    }else if(years == 6){
+        // MAJOR CHOICE ONE
+        if(eventCount == 1){
+            problem.textContent=("You decide to enroll your child in public school. This allows you to pick up more hours.");
+            intellect = intellect + 8; 
+            wealth = wealth + 2;
+            majorChoice1 = 2;
+            eventCount = eventCount + 1;
             updateCounters();
         }
     }
@@ -271,6 +308,23 @@ optionButton3.addEventListener("click", function(){
             years = 6;
             updateCounters();
         }
+    }else if(years == 6){
+        // MAJOR CHOICE ONE
+        if(eventCount == 1){
+            problem.textContent=("You decide to homeschool your child.");
+            majorChoice1 = 3;
+            eventCount = eventCount + 1;
+            updateCounters();
+        }else if (eventCount == 2 && majorChoice1 == 3){
+            problem.textContent=("You decide to utilize a mixed curriculum");
+            intellect = intellect + 1;
+            eventCount = eventCount + 1;
+            updateCounters();
+        }else if(eventCount == 3 && majorChoice1 == 3){
+            problem.textContent=("You decide to do a parent-led teaching style.")
+            intellect = intellect + 1;
+            eventCount = eventCount + 1;
+        }
     }
 });
 
@@ -281,11 +335,11 @@ function updateCounters () {
 		problem.textContent=("You failed at raising your child. Your child made it to " + years + " years old.");
 		//this will be the code to handle a premature game over 
 	}else{
-		document.getElementById('wealth').textContent = "Wealth ($) = " + wealth;
-        document.getElementById('happiness').textContent = "Happiness (:D) = " + happiness;
-        document.getElementById('health').textContent = "Health (<3) = " + health;
-        document.getElementById('parentWellbeing').textContent = "Parent Well-being (<>) = " + parentWellbeing;
-        document.getElementById('intellect').textContent = "Intellect (IQ) = " + intellect;
+		document.getElementById('wealth').textContent = "Wealth = " + wealth;
+        document.getElementById('happiness').textContent = "Happiness = " + happiness;
+        document.getElementById('health').textContent = "Health = " + health;
+        document.getElementById('parentWellbeing').textContent = "Parent Wellbeing = " + parentWellbeing;
+        document.getElementById('intellect').textContent = "Intellect = " + intellect;
 		//this will update the stats ^^
 	}
 };

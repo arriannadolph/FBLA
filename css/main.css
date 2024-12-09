@@ -7,21 +7,27 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #1a1a1a;
-    color:#00ff00;
+    color: #00ff00;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 .container {
     text-align: center;
-    background:#333;
+    background: #333;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,255,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
 }
 
 .title {
     font-size: 2em;
     margin-bottom: 20px;
-    text-shadow:0 0 10px #00ff00;
+    text-shadow: 0 0 10px #00ff00;
 }
 
 .menu {
@@ -31,12 +37,12 @@ body {
 .menu button {
     display: block;
     width: 100%;
-    margin: 10px 0px;
+    margin: 10px 0;
     padding: 15px;
     font-size: 1.2em;
     cursor: pointer;
     background: #444;
-    color:#00ff00;
+    color: #00ff00;
     border: 2px solid #00ff00;
     border-radius: 5px;
     text-shadow: 0 0 5px #00ff00;
@@ -44,9 +50,9 @@ body {
 
 .menu button:hover {
     background: #00ff00;
-    color:#1a1a1a
+    color: #1a1a1a;
 }
 
-.preg-test{
+.preg-test {
     align-items: center;
 }

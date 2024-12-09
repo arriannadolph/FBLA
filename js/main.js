@@ -231,7 +231,6 @@ optionButton3.addEventListener("click", function(){
     }
 });
 
-
 /*----- functions -----*/
 
 function updateCounters () {

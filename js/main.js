@@ -40,36 +40,36 @@ optionButton1.addEventListener("click", function(){
 			    problem.textContent=("Your child eventually came around. He just needed a little more time.");
 			    health = health + 1;
 			    eventCount = eventCount + 1;
-			    updateScreen();
+			    updateCounters();
 		    }else{
 			    problem.textContent=("After a long while of waiting, you decide to switch your child over anyway.")
-			    parentHealth = parentHealth - 1;
+			    parentWellbeing = parentWellbeing - 1;
 			    wealth = wealth - 1;
 			    eventCount = eventCount + 1;
-			    updateScreen();
+			    updateCounters();
 		    }
 	    }else if(eventCount == 2){
 		    problem.textContent=("While your sleep may suffer, your child went to bed faster with you there.");
-            parentHealth = parentHealth - 1;
+            parentWellbeing = parentWellbeing - 1;
             health = health + 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
 	    }else{
             problem.textContent=("While your child is falling slightly behind, you set up your future for you and your family");
             wealth = wealth + 2;
             happiness = happiness - 2;
             eventCount = 1;
             years = 2;
-            updateScreen();
+            updateCounters();
         }
     }else if(years == 2){
         if(eventCount == 1){
             problem.textContent=("After taking your child to a pediatrician, you discovered that your child's slight delay to walking is completely normal, and not cause for concern.");
-            if(parentHealth > 5){
-                parentHealth = 5;
+            if(parentWellbeing > 5){
+                parentWellbeing = 5;
             }
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else{
             problem.textContent=("You decide to punish your child with a punishment that makes them think about what they did. (This will affect the game later.)");
             majorChoice2Modifiers = majorChoice2Modifiers + 1;
@@ -77,7 +77,7 @@ optionButton1.addEventListener("click", function(){
             majorChoice5Modifiers = majorChoice5Modifiers + 1;
             eventCount = 1;
             years = 3;
-            updateScreen();
+            updateCounters();
         }
     }else if(years == 3){
         if(eventCount == 1){
@@ -85,13 +85,13 @@ optionButton1.addEventListener("click", function(){
             wealth = wealth - 1;
             intellect = intellect + 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else if(eventCount == 2){
             problem.textContent=("You take your child to the birthday party. While you're there, your friend talks to you about their child's educational tablet, and tells you to consider buying one.");
             happiness = happiness + 1;
             intellect = intellect + 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else{
             problem.textContent=("You buy your child the tablet, and see it do wonders")
             wealth = wealth - 1;
@@ -99,7 +99,7 @@ optionButton1.addEventListener("click", function(){
             eventCount = 1;
             years = 4;
             hasTablet = true
-            updateScreen();
+            updateCounters();
         }
     }else if(years == 4){
         if(eventCount == 1){
@@ -107,23 +107,38 @@ optionButton1.addEventListener("click", function(){
             wealth = wealth + 2;
             intellect = intellect + 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else if(eventCount == 2){
             problem.textContent=("You get the promotion, but as you were working towards it, you had to work even longer.");
             wealth = wealth + 1;
             happiness = happiness - 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else if(eventCount == 3 && hasTablet == true) {
             problem.textContent=("You decide to limit your child's use of the tablet.")
             intellect = intellect + 1;
             eventCount = 1;
             years = 5;
-            updateScreen();
+            updateCounters();
         }else{
             eventCount = 1;
             years = 5;
-            updateScreen();
+            updateCounters();
+        }
+    }else if(years == 5){
+        if(eventCount == 1){
+            problem.textContent=("You decide to buy your child a toy from the store")
+            happiness = happiness + 1;
+            wealth = wealth - 1;
+            eventCount = eventCount + 1;
+            updateCounters();
+        }else{
+            problem.textContent=("You confront your partner. It escalates into a full-blown argument. Your child can hear.")
+            happiness = happiness - 1;
+            parentWellbeing = parentWellbeing - 1;
+            eventCount = 1;
+            years = 6;
+            updateCounters();
         }
     }
 });
@@ -131,10 +146,10 @@ optionButton1.addEventListener("click", function(){
 optionButton2.addEventListener("click", function(){
 	// there are only two options for the 3 events on year 1, so i will put the second choice into option 3 for aesthetic purposes
     if(years == 1){
-        problem.style.display='none';
+        optionButton2.style.display='none';
     }else if(years == 2){
         if(eventCount == 1){
-            problem.style.display='none';
+            optionButton2.style.display='none';
         }else{
             problem.textContent=("You decide not to punish your child at all. (This will affect the game later.)");
             majorChoice2Modifiers = majorChoice2Modifiers + 1;
@@ -143,10 +158,10 @@ optionButton2.addEventListener("click", function(){
             happiness = happiness + 1;
             intellect = intellect - 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }
     }else if(years == 3){
-        problem.style.display='none';
+        optionButton2.style.display='none';
     }else if(years == 4){
         if(eventCount == 3 && hasTablet == true) {
             problem.textContent=("You decide that it isn't a problem.")
@@ -154,11 +169,21 @@ optionButton2.addEventListener("click", function(){
             health = health - 1;
             eventCount = 1;
             years = 5;
-            updateScreen();
+            updateCounters();
         }else{
             eventCount = 1;
             years = 5;
-            updateScreen();
+            updateCounters();
+        }
+    }else if(years == 5){
+        if(eventCount == 1){
+            optionButton2.style.display='none';
+        }else{
+            problem.textContent=("You calmly discuss the issue with your partner. Your partner still disagrees, and you are both left frustrated.")
+            parentWellbeing = parentWellbeing - 1;
+            eventCount = 1;
+            years = 6;
+            updateCounters();
         }
     }
 });
@@ -172,20 +197,20 @@ optionButton3.addEventListener("click", function(){
                 problem.textContent=("Your child just needed more time. Making the switch wasn't necessary, and your child actually does better breastfeeding.")
                 wealth = wealth - 1
                 eventCount = eventCount + 1;
-                updateScreen();
+                updateCounters();
             }else{
                 problem.textContent=("Your child responded much better to bottle-feeding than breastfeeding.")
                 health = health + 1;
                 eventCount = eventCount + 1;
-                updateScreen();
+                updateCounters();
             }
         }
     }else if(years == 2){
         if(eventCount == 1){
             problem.textContent=("You decide not to take your child to the pediatrician, but you still worry about your child.");
-            parentHealth = parentHealth - 1;
+            parentWellbeing = parentWellbeing - 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else{
             problem.textContent=("You decide to give your child a physical punishment. (This will affect the game later.)");
             majorChoice2Modifiers = majorChoice2Modifiers - 2;
@@ -195,31 +220,31 @@ optionButton3.addEventListener("click", function(){
             intellect = intellect - 1;
             happiness = happiness - 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }
     }else if(years == 3){
         if(eventCount == 1){
             problem.textContent=("You decide against it. You're sure that your child will come around eventually");
             intellect = intellect - 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else{
             problem.textContent=("You decide against taking your child to the birthday party.");
             happiness = happiness - 1;
             eventCount = 1
             years = 4;
-            updateScreen();
+            updateCounters();
         }
     }else if(years == 4){
         if(eventCount == 1){
             problem.textContent=("You decide not to enroll your child into preschool.");
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else if(eventCount == 2){
             problem.textContent=("You don't get the promotion, because you need to spend more time with your kid.");
             happiness = happiness + 1;
             eventCount = eventCount + 1;
-            updateScreen();
+            updateCounters();
         }else if(eventCount == 3 && hasTablet == true) {
             problem.textContent=("You decide to scold your child for using their tablet.")
             intellect = intellect + 1;
@@ -229,11 +254,22 @@ optionButton3.addEventListener("click", function(){
             majorChoice5Modifiers = majorChoice5Modifiers - 1;
             eventCount = 1;
             years = 5;
-            updateScreen();
+            updateCounters();
         }else{
             eventCount = 1;
             years = 5;
-            updateScreen();
+            updateCounters();
+        }
+    }else if(years == 5){
+        if(eventCount == 1){
+            problem.textContent=("You decide not to get your child a toy.")
+            happiness - 1;
+            eventCount = eventCount + 1;
+        }else{
+            problem.textContent=("You decide to stay silent about it. Frustrations begin to build.")
+            parentWellbeing = parentWellbeing - 1;
+            years = 6;
+            updateCounters();
         }
     }
 });
@@ -241,15 +277,15 @@ optionButton3.addEventListener("click", function(){
 /*----- functions -----*/
 
 function updateCounters () {
-	if(wealth <= 0 || happiness <= 0 || health <= 0 || parentHealth <= 0 || intellect <= 0){
-		problem.textContent=("You failed at raising your child. Your child made it to " + years + "years old.");
+	if(wealth <= 0 || happiness <= 0 || health <= 0 || parentWellbeing <= 0 || intellect <= 0){
+		problem.textContent=("You failed at raising your child. Your child made it to " + years + " years old.");
 		//this will be the code to handle a premature game over 
 	}else{
-		document.getElementById('wealth').textContent = wealth;
-        document.getElementById('happiness').textContent = happiness;
-        document.getElementById('health').textContent = health;
-        document.getElementById('parentWellbeing').textContent = parentWellbeing;
-        document.getElementById('intellect').textContent = intellect;
+		document.getElementById('wealth').textContent = "Wealth ($) = " + wealth;
+        document.getElementById('happiness').textContent = "Happiness (:D) = " + happiness;
+        document.getElementById('health').textContent = "Health (<3) = " + health;
+        document.getElementById('parentWellbeing').textContent = "Parent Well-being (<>) = " + parentWellbeing;
+        document.getElementById('intellect').textContent = "Intellect (IQ) = " + intellect;
 		//this will update the stats ^^
 	}
 };

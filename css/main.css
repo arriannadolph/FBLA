@@ -8,12 +8,6 @@ body {
     height: 100vh;
     background-color: #1a1a1a;
     color: #00ff00;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-body.loaded {
-    opacity: 1;
 }
 
 .container {

@@ -1,10 +1,5 @@
 /*----- constants -----*/
 const problem = getElementById();
-const wealthStat = getElementById();
-const happinessStat = getElementById();
-const healthStat = getElementById();
-const parentHealthStat = getElementById();
-const intellectStat = getElementById();
 const optionbutton1 = getElementById();
 const optionbutton2 = getElementById();
 const optionbutton3 = getElementById();
@@ -16,11 +11,11 @@ const majorChoice4 = [Year16A, Year16B, Year16C];
 const majorChoice5 = [Year18A, Year18B, Year18C];
 
 /*----- state variables -----*/
-var wealth = 5;
-var happiness = 5;
-var health = 5;
-var parentHealth = 5;
-var intellect = 5;
+let intellect = localStorage.getItem('intellect')?parseInt(localStorage.getItem('intellect')):30;
+let wealth = localStorage.getItem('wealth')?parseInt(localSotrage.getItem('wealth')):30;
+let happiness = localStorage.getItem('happiness')?parseInt(localStorage.getItem('happiness')):30;
+let health = localStorage.getItem('health')?parseInt(localStorage.getItem('health')):30;
+let parentWellbeing = localStorage.getItem('parentWellbeing')?parseInt(localStorage.getItem('parentWellbeing')): 30;
 var years = 1;
 var eventCount = 1;
 
@@ -239,16 +234,16 @@ optionButton3.addEventListener("click", function(){
 
 /*----- functions -----*/
 
-function updateScreen () {
+function updateCounters () {
 	if(wealth <= 0 || happiness <= 0 || health <= 0 || parentHealth <= 0 || intellect <= 0){
 		problem.textContent=("You failed at raising your child. Your child made it to " + years + "years old.");
 		//this will be the code to handle a premature game over 
 	}else{
-		wealthStat.textContent=("Wealth ( $ ) = " + wealth);
-		happinessStat.textContent=("Happiness ( :D ) = " + happiness);
-		healthStat.textContent=("Health ( <3 ) = " + health);
-		parentHealthStat.textContent=("Parent Wellbeing ( <> ) = " + parentHealth);
-		intellectStat.textContent=("Intellect (IQ) = " + intellect);
+		document.getElementById('wealth').textContent = wealth;
+        document.getElementById('happiness').textContent = happiness;
+        document.getElementById('health').textContent = health;
+        document.getElementById('parentWellbeing').textContent = parentWellbeing;
+        document.getElementById('intellect').textContent = intellect;
 		//this will update the stats ^^
 	}
 };

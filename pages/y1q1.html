@@ -5,8 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/y1.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="question">
+            <button onclick="redirect('y1q2.html')">A. Stay Up</button>
+            <button onclick="redirect('y1q2.html')">B. Let it cry itself to sleep.</button>
+        </div>
+        <div class="counters">
+            <div class="counter">Intellect: <span id="intellect">30</span></div>
+            <div class="counter">Wealth: <span id="wealth">30</span></div>
+            <div class="counter">Happiness: <span id="happiness">30</span></div>
+            <div class="counter">Health: <span id="health">30</span></div>
+            <div class="counter">Parent Wellbeing: <span id="parentWellbeing">30</span></div>
+        </div>
+    </div>
+
+    <script src="script.js">
+         if (option === 'A') {
+                intellect.textContent = parseInt(intellect.textContent) + 5;
+                happiness.textContent = parseInt(happiness.textContent) - 5;
+            } else if (option === 'B') {
+                health.textContent = parseInt(health.textContent) + 5;
+                parentWellbeing.textContent = parseInt(parentWellbeing.textContent) - 5;
+            }
+    </script>
 </body>
 </html>

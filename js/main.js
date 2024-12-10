@@ -1,5 +1,6 @@
 /*----- constants -----*/
 const problem = getElementById();
+// do not forget to go into the html for y1q1 tomorrow and assign these element IDs!!!!!!!!!
 const optionButton1 = getElementById();
 const optionButton2 = getElementById();
 const optionButton3 = getElementById();

@@ -1,17 +1,3 @@
-/*
-okay, i'm putting this here because i mostly suck at confrontation & expressing opinions, but
-i think we may need to seriously consider cutting back on the scope of this project, perhaps 
-cutting down to just 2-3 major choices, because we have under a week to have this completed, 
-and i just don't think making *all* of those routes in that time is feasible.
-
-if we do decide to cut back, we could decrease the amount of choices you make in your childs
-life as it ages, as the child becomes more independent, eventually becoming a choice every
-few years. because we have to get roughly 63 choices total (if i'm not mistaken), and in three
-days i have only been able to do about 8.
-*/
-
-
-
 /*----- constants -----*/
 const problem = getElementById();
 const optionbutton1 = getElementById();
@@ -41,11 +27,7 @@ var majorChoice3Modifiers = 0;
 var majorChoice5Modifiers = 0;
 
 var hasTablet = false;
-
-
-/*----- cached elements -----*/
-
-
+var gameOver = false;
 
 /*----- event listeners -----*/
 
@@ -174,6 +156,19 @@ optionButton1.addEventListener("click", function(){
             majorChoice1 = 1;
             eventCount = eventCount + 1;
             updateCounters();
+        }else if(majorChoice1 == 1 & eventCount >= 2){
+            problem.textContent=("");
+        }else if(majorChoice1 == 2 && eventCount >= 2){
+            problem.textContent=("To prevent your child from further testing your boundaries in the future, you decide to punish them");
+            happiness = happiness - 1;
+            eventCount = eventCount + 1;
+            updateCounters();
+        }else if(majorChoice1 == 2 && eventCount >= 2){
+            if (eventCount == 2){
+                // the rest of year 6
+                problem.textContent=("");
+                updateCounters();
+            }
         }
     }
 });
@@ -229,6 +224,19 @@ optionButton2.addEventListener("click", function(){
             majorChoice1 = 2;
             eventCount = eventCount + 1;
             updateCounters();
+        }else if(majorChoice1 == 1 & eventCount >= 2){
+            problem.textContent=("");
+        }else if(majorChoice1 == 2 && eventCount >= 2){
+            problem.textContent=("To prevent your child from further testing your boundaries in the future, you decide to punish them");
+            happiness = happiness - 1;
+            eventCount = eventCount + 1;
+            updateCounters();
+        }else if(majorChoice1 == 2 && eventCount >= 2){
+            if (eventCount == 2){
+                // the rest of year 6
+                problem.textContent=("");
+                updateCounters();
+            }
         }
     }
 });
@@ -323,10 +331,13 @@ optionButton3.addEventListener("click", function(){
             majorChoice1 = 3;
             eventCount = eventCount + 1;
             updateCounters();
-        }if(majorChoice1 == 1 & eventCount >= 2){
+        }else if(majorChoice1 == 1 & eventCount >= 2){
             problem.textContent=("");
         }else if(majorChoice1 == 2 && eventCount >= 2){
-            problem.textContent=("You ");
+            problem.textContent=("To prevent your child from further testing your boundaries in the future, you decide to punish them");
+            happiness = happiness - 1;
+            eventCount = eventCount + 1;
+            updateCounters();
         }else if(majorChoice1 == 3 && eventCount >= 2){
             if (eventCount == 2){
                 // the rest of year 6, which really just revolves around the major choice in this route
@@ -354,6 +365,10 @@ optionButton3.addEventListener("click", function(){
 function updateCounters () {
 	if(wealth <= 0 || happiness <= 0 || health <= 0 || parentWellbeing <= 0 || intellect <= 0){
 		problem.textContent=("You failed at raising your child. Your child made it to " + years + " years old.");
+        optionButton1.style.display=('none');
+        optionButton2.textContent=("Back to title screen");
+        optionButton3.style.display=('none');
+        gameOver = true;
 		//this will be the code to handle a premature game over 
 	}else{
 		document.getElementById('wealth').textContent = "Wealth = " + wealth;

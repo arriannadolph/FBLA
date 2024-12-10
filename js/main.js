@@ -1,8 +1,8 @@
 /*----- constants -----*/
 const problem = getElementById();
-const optionbutton1 = getElementById();
-const optionbutton2 = getElementById();
-const optionbutton3 = getElementById();
+const optionButton1 = getElementById();
+const optionButton2 = getElementById();
+const optionButton3 = getElementById();
 const minigameButton = getElementById();
 
 /*----- state variables -----*/
@@ -30,14 +30,6 @@ var hasTablet = false;
 var gameOver = false;
 
 /*----- event listeners -----*/
-
-// theortically connects to the esc key but who knows
-document.body.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-        window.location.replace("index.html")
-    }
-})
-
 optionButton1.addEventListener("click", function(){
 	if(years == 1){
         if(eventCount == 1){
@@ -157,13 +149,20 @@ optionButton1.addEventListener("click", function(){
             eventCount = eventCount + 1;
             updateCounters();
         }else if(majorChoice1 == 1 & eventCount >= 2){
-            problem.textContent=("");
+            //private school route
+            if(eventCount == 2){
+                problem.textContent=("");
+            }
         }else if(majorChoice1 == 2 && eventCount >= 2){
-            problem.textContent=("To prevent your child from further testing your boundaries in the future, you decide to punish them");
-            happiness = happiness - 1;
-            eventCount = eventCount + 1;
-            updateCounters();
+            //public school route
+            if(eventCount == 2){
+                problem.textContent=("To prevent your child from further testing your boundaries in the future, you decide to punish them");
+                happiness = happiness - 1;
+                eventCount = eventCount + 1;
+                updateCounters();
+            }
         }else if(majorChoice1 == 2 && eventCount >= 2){
+            //homeschool route
             if (eventCount == 2){
                 // the rest of year 6
                 problem.textContent=("");

@@ -315,15 +315,28 @@ optionButton3.addEventListener("click", function(){
             majorChoice1 = 3;
             eventCount = eventCount + 1;
             updateCounters();
-        }else if (eventCount == 2 && majorChoice1 == 3){
-            problem.textContent=("You decide to utilize a mixed curriculum");
-            intellect = intellect + 1;
-            eventCount = eventCount + 1;
-            updateCounters();
-        }else if(eventCount == 3 && majorChoice1 == 3){
-            problem.textContent=("You decide to do a parent-led teaching style.")
-            intellect = intellect + 1;
-            eventCount = eventCount + 1;
+        }if(majorChoice1 == 1 & eventCount >= 2){
+            problem.textContent=("");
+        }else if(majorChoice1 == 2 && eventCount >= 2){
+            problem.textContent=("You ");
+        }else if(majorChoice1 == 3 && eventCount >= 2){
+            if (eventCount == 2){
+                // the rest of year 6, which really just revolves around the major choice in this route
+                problem.textContent=("You decide to utilize a mixed curriculum");
+                intellect = intellect + 1;
+                eventCount = eventCount + 1;
+                updateCounters();
+            }else if(eventCount == 3){
+                problem.textContent=("You decide to do a parent-led teaching style.")
+                intellect = intellect + 1;
+                eventCount = eventCount + 1;
+            }else if(eventCount == 4){
+                problem.textContent=("You begin using negative reinforcement to help your child with homeschooling")
+                intellect = intellect - 1;
+                happiness = happiness - 1;
+                eventCount = 1;
+                updateCounters();
+            }
         }
     }
 });

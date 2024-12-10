@@ -48,6 +48,14 @@ var hasTablet = false;
 
 
 /*----- event listeners -----*/
+
+// theortically connects to the esc key but who knows
+document.body.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        window.location.replace("index.html")
+    }
+})
+
 optionButton1.addEventListener("click", function(){
 	if(years == 1){
         if(eventCount == 1){

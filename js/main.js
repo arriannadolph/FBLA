@@ -11,14 +11,6 @@ const nextButton = document.getElementById('nextButton');
 
 /*----- state variables -----*/
 
-function updateCounters() {
-    document.getElementById('intellect').textContent = intellect;
-    document.getElementById('wealth').textContent = wealth;
-    document.getElementById('happiness').textContent = happiness;
-    document.getElementById('health').textContent = health;
-    document.getElementById('parentWellbeing').textContent = parentWellbeing;
-}
-
 let intellect = localStorage.getItem('intellect')?parseInt(localStorage.getItem('intellect')):30;
 let wealth = localStorage.getItem('wealth')?parseInt(localSotrage.getItem('wealth')):30;
 let happiness = localStorage.getItem('happiness')?parseInt(localStorage.getItem('happiness')):30;
@@ -374,23 +366,13 @@ optionButton3.addEventListener("click", function(){
 
 /*----- functions -----*/
 
-function updateCounters () {
-	if(wealth <= 0 || happiness <= 0 || health <= 0 || parentWellbeing <= 0 || intellect <= 0){
-		problem.textContent=("You failed at raising your child. Your child made it to " + years + " years old.");
-        optionButton1.style.display=('none');
-        optionButton2.textContent=("Back to title screen");
-        optionButton3.style.display=('none');
-        gameOver = true;
-		//this will be the code to handle a premature game over 
-	}else{
-		document.getElementById('wealth').textContent = "Wealth = " + wealth;
-        document.getElementById('happiness').textContent = "Happiness = " + happiness;
-        document.getElementById('health').textContent = "Health = " + health;
-        document.getElementById('parentWellbeing').textContent = "Parent Wellbeing = " + parentWellbeing;
-        document.getElementById('intellect').textContent = "Intellect = " + intellect;
-		//this will update the stats ^^
-	}
-};
+function updateCounters() {
+    document.getElementById('intellect').textContent = intellect;
+    document.getElementById('wealth').textContent = wealth;
+    document.getElementById('happiness').textContent = happiness;
+    document.getElementById('health').textContent = health;
+    document.getElementById('parentWellbeing').textContent = parentWellbeing;
+}
 
 function showNextButton() {
     nextButtonContainer.style.display = 'block';

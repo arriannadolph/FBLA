@@ -10,12 +10,11 @@
 <body class="questions">
     <div class="container">
         <div id="question">
-            <h1>It't been a couple days and your baby will not stop crying at night time. You feel like it's become a little too much. What do you decide to do the following night?</h1>
+            <h1>It's been a couple days and your baby will not stop crying at night time. You feel like it's become a little too much. What do you decide to do the following night?</h1>
         </div>
         <div class="answer">
-            <button onclick="redirect('y1q2.html')">A. Stay Up</button>
-            <button onclick="redirect('y1q2.html')">B. Let it cry itself to sleep.</button>
-            
+            <button id="optionButton1">A. Stay Up</button>
+            <button id="optionButton2">B. Let it cry itself to sleep.</button>
         </div>
         <div class="counters">
             <div class="counter">Intellect: <span id="intellect">30</span></div>
@@ -24,16 +23,10 @@
             <div class="counter">Health: <span id="health">30</span></div>
             <div class="counter">Parent Wellbeing: <span id="parentWellbeing">30</span></div>
         </div>
+        <div id="nextButtonContainer" style="display: none;">
+            <button id="nextButton" onclick="redirect('y1q2.html')">Next</button>
+        </div>
     </div>
 
-    <script src="script.js">
-         if (option === 'A') {
-                intellect.textContent = parseInt(intellect.textContent) + 5;
-                happiness.textContent = parseInt(happiness.textContent) - 5;
-            } else if (option === 'B') {
-                health.textContent = parseInt(health.textContent) + 5;
-                parentWellbeing.textContent = parseInt(parentWellbeing.textContent) - 5;
-            }
-    </script>
+    <script src="script.js"></script>
 </body>
-</html>

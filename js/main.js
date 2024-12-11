@@ -1,12 +1,23 @@
-/*----- constants -----*/
-const problem = getElementById();
-// do not forget to go into the html for y1q1 tomorrow and assign these element IDs!!!!!!!!!
-const optionButton1 = getElementById();
-const optionButton2 = getElementById();
-const optionButton3 = getElementById();
+
 const minigameButton = getElementById();
 
+/*----- constants -----*/
+const problem = document.getElementById('problem');
+const optionButton1 = document.getElementById('optionButton1');
+const optionButton2 = document.getElementById('optionButton2');
+const nextButtonContainer = document.getElementById('nextButtonContainer');
+const nextButton = document.getElementById('nextButton');
+
 /*----- state variables -----*/
+
+function updateCounters() {
+    document.getElementById('intellect').textContent = intellect;
+    document.getElementById('wealth').textContent = wealth;
+    document.getElementById('happiness').textContent = happiness;
+    document.getElementById('health').textContent = health;
+    document.getElementById('parentWellbeing').textContent = parentWellbeing;
+}
+
 let intellect = localStorage.getItem('intellect')?parseInt(localStorage.getItem('intellect')):30;
 let wealth = localStorage.getItem('wealth')?parseInt(localSotrage.getItem('wealth')):30;
 let happiness = localStorage.getItem('happiness')?parseInt(localStorage.getItem('happiness')):30;
@@ -379,3 +390,8 @@ function updateCounters () {
 		//this will update the stats ^^
 	}
 };
+
+function showNextButton() {
+    nextButtonContainer.style.display = 'block';
+}
+

@@ -5,6 +5,7 @@ const minigameButton = getElementById();
 const problem = document.getElementById('problem');
 const optionButton1 = document.getElementById('optionButton1');
 const optionButton2 = document.getElementById('optionButton2');
+const optionButton3 = document.getElementById('optionButton3');
 const nextButtonContainer = document.getElementById('nextButtonContainer');
 const nextButton = document.getElementById('nextButton');
 
